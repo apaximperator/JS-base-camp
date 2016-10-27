@@ -35,11 +35,10 @@ function getDataTypePseudoName (variable) {
 					return 'object-function';
 				}
 				else
-					if (Array.isArray(variable)){
+					if (typeof variable == 'object'){
 						return 'object'
 					}
 }
-getDataTypePseudoName([1,2,4])
 /*
 	Напишите функцию, которая принимает 2 аргумента,
 	и возврвщает 1 если их значения и их типы равны,
@@ -47,11 +46,7 @@ getDataTypePseudoName([1,2,4])
 	и -1 в другом случае
 */
 function compareByType (a, b) {
-	return a===b
-		? 1
-		: a==b
-			? 0
-			:-1;
+	return a===b? 1 : a==b? 0 :-1;
 
 }
 
@@ -64,9 +59,7 @@ function compareByType (a, b) {
 	в любом другом случае возврвщвет -1
 */
 function increase (value) {
-	return (typeof value === 'number')
-		? ++value
-		: -1;
+	return (typeof value === 'number')? ++value : -1;
 
 }
 
@@ -75,9 +68,7 @@ function increase (value) {
 	и в случае если аргумент не Infinity или NaN возвращает строку 'safe' иначе 'danger'
 */
 function testForSafeNumber (value) {
-	return (isFinite(value))
-		? 'safe'
-		: 'danger';
+	return (isFinite(value))? 'safe' : 'danger';
 }
 
 
@@ -140,8 +131,8 @@ function join (array, separator) {
 */
 
 function glue (arrA, arrB) {
-	arr=arrA.concat(arrB);
-	return arr;
+	var arrsum=arrA.concat(arrB);
+	return arrsum;
 }
 
 
@@ -160,13 +151,14 @@ function order (arr) {
 	Напишите функцию, которая принимает 1 массив,
 	и возвращает другой без чисел которые меньше 0
 */
+var positiveNumber=[];
 function removeNegative (arr) {
 	for (i=0; i<arr.length; i++){
-		if (arr[i]<=0){
-		arr.splice(i,1);
+		if (arr[i]>0){
+		positiveNumber.push(arr[i]);
 		}
 	}
-	return arr;
+	return positiveNumber;
 }
 
 /*
@@ -179,9 +171,9 @@ function without (arrA, arrB) {
 	for (i=0; i<arrA.length; i++){
 		for (j=0; j<arrB.length; j++){
 			if (arrA[i]===arrB[j]){
-				arrA.splice(i,1);
+				var arrwithout=arrA.splice(i,1);
 			}
 		}
 	}
-	return arrA;
+	return  arrwithou;
 }
