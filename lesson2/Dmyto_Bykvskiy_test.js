@@ -29,7 +29,7 @@ function createLogger(prefix){
     var date = new Date().toISOString();
     var output = date + ' ' + prefix + ': ';
     return function(data) {
-        console.log(output + data);
+        console.log(output + JSON.stringify(data));
     };
 }
 
