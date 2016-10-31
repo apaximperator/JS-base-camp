@@ -8,7 +8,7 @@ function extractCharacters(str) {
       var obj = {};
 
     for (var i = 0; i < arr.length; i++) {
-        var char = arr[i];
+        var char = arr[i].toLowerCase();
         obj[char] = true; 
     }
 
