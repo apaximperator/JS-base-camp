@@ -39,24 +39,17 @@ function createLogger(prefix){
     		else {
     			for (k in data[i]){
     				var re= /"/gi
-    				finalData+=' Object '+JSON.stringify(data[i]).replace(re,'');
-    				
+    				finalData+=' Object '+JSON.stringify(data[i]).replace(re,'');	
     			}
     		}
-     		
-    		
-    	}
-    	return console.log(output + finalData);
-    	
+       	}
+    	return console.log(output + finalData);	
 	}
-
-
 }
 
 var myLogger = createLogger('My Logger');
  
 myLogger({ data: 1 },'gggg',{ data: 2 },{ data: 3 },46);
-
 //Create a function that will take any number of arguments and return their sum
 function sum() {
     var s = 0;
