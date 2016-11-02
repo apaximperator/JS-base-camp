@@ -26,16 +26,36 @@ extractCharacters('Hello, world');
 с помощью которой можно будет выводить в консоль текстовую информацию.
 */
 function createLogger(prefix){
-    var date = new Date().toISOString();
+	var finalData=''
+ 	var date = new Date().toISOString();
     var output = date + ' ' + prefix + ': ';
-    return function(data) {
-        console.log(output + JSON.stringify(data));
-    };
+    return function() {
+    	var data=[].slice.call(arguments);
+
+    	for (i=0;i<data.length;++i){
+    		if (typeof(data[i])!=='object'){
+    			finalData+=' '+data[i];
+    		}
+    		else {
+    			for (k in data[i]){
+    				var re= /"/gi
+    				finalData+=' Object '+JSON.stringify(data[i]).replace(re,'');
+    				
+    			}
+    		}
+     		
+    		
+    	}
+    	return console.log(output + finalData);
+    	
+	}
+
+
 }
 
 var myLogger = createLogger('My Logger');
-
-myLogger('some data');
+ 
+myLogger({ data: 1 },'gggg',{ data: 2 },{ data: 3 },46);
 
 //Create a function that will take any number of arguments and return their sum
 function sum() {
