@@ -108,13 +108,11 @@ function Calculator() {
     for (var i = 0; i < arguments.length; i++) {
         Arguments.push(arguments[i]);
     }
-
-    var sum = [];
-
+    
     this.add = function (num) {
         if (typeof num === 'number' && !isNaN(num)) {
             Arguments.push(num);
-            sum = Arguments.reduce(sumAccumulator);
+            Arguments.reduce(sumAccumulator);
 
             return this;
         } else {
